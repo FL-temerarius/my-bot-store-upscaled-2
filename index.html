@@ -28,12 +28,6 @@
       margin-bottom: 30px;
     }
     
-    .emoji {
-    font-size: calc(100px + 4vw);
-    min-width: 1.4em;
-    margin: 0.3em 0.4em;
-    text-align: center;
-    }
     
     /* Стили карточек продуктов */
     .product {
@@ -66,15 +60,19 @@
     }
 
     .product-title::after {
-      content: '👇'; /* Анимированный эмоджи */
-      --emoji: '👈';
-    animation-name: twoFrames;
-    animation-duration: 1.2s;
+      content: '👇👇👇'; /* Анимированный эмоджи */
+      margin-right: 8px;
+      animation: rotate 4s linear infinite; /* Анимация вращения */
     }
 
     @keyframes emoji-spin {
       from { transform: rotate(0deg); }
       to { transform: rotate(360deg); }
+    }
+
+    @keyframes rotate {
+  from {    transform: rotateZ(0deg); }
+  to {    transform: rotateZ(90deg); }
     }
 
     .product-description {
@@ -178,11 +176,14 @@
 
   <h1>Ваш Фокус ➡️ Стратегия и Развитие.</h1>
   <h3>Теперь Умные таблицы, Боты и AI-агенты, работают на вас и на ваши высокие цели!</h3>
-  <button class="toggle-all-btn" id="toggle-all"><h3><i>Выберите свой вариант и получите личное предложение, пока действует акция!</i></h3></button>
+  
+  <button class="toggle-all-btn" id="toggle-all">Показать все</button>
+  
+  <h3><i>Выберите свой вариант и получите личное предложение, пока действует акция!</i></h3>
 
   
   <div class="product" id="product1">
-    <div class="product-title">⚠️ Умная таблица для генерации контента -</div>
+    <div class="product-title">- ⚠️ Умная таблица для генерации контента -</div>
     <p class="product-description">Контент-план на автопилоте: ИИ-помощник для Telegram и других соцсетей</p>
     <button class="toggle-details-btn">Подробнее</button>
     <div class="details">
@@ -194,7 +195,7 @@
   </div>
 
   <div class="product" id="product2">
-    <div class="product-title">⚠️ Бот для опросов -</div>
+    <div class="product-title">- ⚠️ Бот для опросов -</div>
     <p class="product-description">Опросы, которые работают: Собирайте данные и вовлекайте аудиторию</p>
     <button class="toggle-details-btn">Подробнее</button>
     <div class="details">
@@ -207,7 +208,7 @@
 
   
   <div class="product" id="product3">
-    <div class="product-title">⚠️ Яндекс-форма и Телеграм Бот с интеграцией -</div>
+    <div class="product-title">- ⚠️ Яндекс-форма и Телеграм Бот с интеграцией -</div>
     <p class="product-description">Данные под контролем: Безопасный сбор и анализ информации</p>
     <button class="toggle-details-btn">Подробнее</button>
     <div class="details">
@@ -219,7 +220,7 @@
   </div>
 
   <div class="product" id="product4">
-    <div class="product-title">⚠️ Бот для мониторинга процессов, составления каталогов и архивов -</div>
+    <div class="product-title">- ⚠️ Бот для мониторинга процессов, составления каталогов и архивов -</div>
     <p class="product-description">Каталогизация без усилий: Фото, Заметки и ИИ - 3 в 1 и удобный архив!</p>
     <button class="toggle-details-btn">Подробнее</button>
     <div class="details">
@@ -231,7 +232,7 @@
   </div>
 
   <div class="product" id="product5">
-    <div class="product-title">⚠️ ИИ Переводчик -</div>
+    <div class="product-title">- ⚠️ ИИ Переводчик -</div>
     <p class="product-description">Забудьте про копипаст и общайтесь на любом языке без границ!</p>
     <button class="toggle-details-btn">Подробнее</button>
     <div class="details">
@@ -243,7 +244,7 @@
   </div>
 
   <div class="product" id="product6">
-    <div class="product-title">⚠️ Личный Коуч -</div>
+    <div class="product-title">- ⚠️ Личный Коуч -</div>
     <p class="product-description">Ваш личный коуч в Telegram: Поддержка, рефлексия и вдохновение.</p>
     <button class="toggle-details-btn">Подробнее</button>
     <div class="details">
@@ -255,7 +256,7 @@
   </div>
 
   <div class="product" id="product7">
-    <div class="product-title">⚠️ Бот-трекер -</div>
+    <div class="product-title">- ⚠️ Бот-трекер -</div>
     <p class="product-description">Живите осознанно и держите все под контролем: Простой бот для анализа активности и прогресса.</p>
     <button class="toggle-details-btn">Подробнее</button>
     <div class="details">
@@ -267,7 +268,7 @@
   </div>
 
   <div class="product" id="product8">
-    <div class="product-title">⚠️ Бот для рефрейминга -</div>
+    <div class="product-title">- ⚠️ Бот для рефрейминга -</div>
     <p class="product-description">Перезагрузите мышление: Избавьтесь от ограничений с помощью ИИ!</p>
     <button class="toggle-details-btn">Подробнее</button>
     <div class="details">
@@ -279,7 +280,7 @@
   </div>
 
   <div class="product" id="product9">
-    <div class="product-title">⚠️ Бот для ведения канала с анонимным постингом -</div>
+    <div class="product-title">- ⚠️ Бот для ведения канала с анонимным постингом -</div>
     <p class="product-description">Анонимный канал: Свобода мнений и ценные инсайты</p>
     <button class="toggle-details-btn">Подробнее</button>
     <div class="details">
@@ -291,7 +292,7 @@
   </div>
 
   <div class="product" id="product10">
-    <div class="product-title">⚠️ Бот для логирования канала и чата -</div>
+    <div class="product-title">- ⚠️ Бот для логирования канала и чата -</div>
     <p class="product-description">Полная история канала: Сохраняйте посты, фото и аналитику</p>
     <button class="toggle-details-btn">Подробнее</button>
     <div class="details">
@@ -303,7 +304,7 @@
   </div>
 
   <div class="product" id="product11">
-    <div class="product-title">⚠️ Решение для парсинга публичных каналов в Телеграм -</div>
+    <div class="product-title">- ⚠️ Решение для парсинга публичных каналов в Телеграм -</div>
     <p class="product-description">Мониторинг каналов: Будьте в курсе трендов и активности конкурентов</p>
     <button class="toggle-details-btn">Подробнее</button>
     <div class="details">
@@ -315,7 +316,7 @@
   </div>
 
   <div class="product" id="product12">
-    <div class="product-title">⚠️ Решение для отложенного постинга в Телеграм -</div>
+    <div class="product-title">- ⚠️ Решение для отложенного постинга в Телеграм -</div>
     <p class="product-description">Планируйте контент: Автоматизируйте и анализируйте частоту публикаций в Telegram</p>
     <button class="toggle-details-btn">Подробнее</button>
     <div class="details">
@@ -327,7 +328,7 @@
   </div>
 
   <div class="product" id="product13">
-    <div class="product-title">⚠️ Бот Бухгалтер -</div>
+    <div class="product-title">- ⚠️ Бот Бухгалтер -</div>
     <p class="product-description">Анализ финансов в Telegram: Простой и удобный учет приходов/расходов - всегда под рукой!</p>
     <button class="toggle-details-btn">Подробнее</button>
     <div class="details">
@@ -339,7 +340,7 @@
   </div>
 
   <div class="product" id="product14">
-    <div class="product-title">⚠️ Личный Шеф-повар -</div>
+    <div class="product-title">- ⚠️ Личный Шеф-повар -</div>
     <p class="product-description">Секреты шеф-повара у вас в Telegram: Вдохновение, рецепты и лафхаки на каждый день!</p>
     <button class="toggle-details-btn">Подробнее</button>
     <div class="details">
@@ -360,7 +361,7 @@
     </div>
   </div>
 
-  <button class="toggle-all-btn" id="toggle-all">Показать/Свернуть все</button>
+  <button class="toggle-all-btn" id="toggle-all">Свернуть все</button>
 
   <script>
     document.querySelectorAll('.toggle-details-btn').forEach(button => {
