@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Умные решения для вашего бизнеса</title>
+  <style>
+    /* Общие стили */
+    body {
+      font-family: 'Arial', sans-serif;
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background: #f8f9fa;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    h1 {
+      color: #007bff;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    h3 {
+      color: #6c757d;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    /* Стили карточек продуктов */
+    .product {
+      border: 1px solid #dee2e6;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 20px;
+      background-color: #fff;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s ease-in-out;
+    }
+
+    .product:hover {
+      transform: translateY(-5px);
+    }
+
+    .product-title {
+      font-size: 1.4em;
+      margin-bottom: 10px;
+      color: #212529;
+      font-weight: bold;
+      display: flex;
+      align-items: center; /* Выравнивание по вертикали */
+    }
+
+    .product-title::before {
+      content: '✨'; /* Анимированный эмоджи */
+      margin-right: 8px;
+      animation: emoji-spin 2s linear infinite; /* Анимация вращения */
+    }
+
+    @keyframes emoji-spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .product-description {
+      margin-bottom: 15px;
+      color: #495057;
+    }
+
+    /* Стили кнопки "Подробнее" */
+    .toggle-details-btn {
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      display: block;
+      width: 100%;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .toggle-details-btn:hover {
+      background-color: #0056b3;
+    }
+
+    /* Стили блока с деталями */
+    .details {
+      display: none;
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px solid #ddd;
+      color: #495057;
+    }
+
+    /* Стили кнопки "Хочу!" */
+    .order-btn {
+      background-color: #28a745;
+      color: #fff;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 5px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      display: block;
+      width: 100%;
+      text-align: center;
+      margin-top: 15px;
+    }
+
+    .order-btn:hover {
+      background-color: #218838;
+    }
+
+    /* Стили статуса заказа */
+    .order-status {
+      margin-top: 8px;
+      font-style: italic;
+      color: green;
+    }
+
+    /* Кнопка "Свернуть/Развернуть все" */
+    .toggle-all-btn {
+      background-color: #f0ad4e; /* Оранжевый цвет */
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      display: block;
+      margin: 20px auto;
+      width: 200px;
+      text-align: center;
+    }
+
+    .toggle-all-btn:hover {
+      background-color: #e6913a;
+    }
+
+    /* Медиа-запросы для адаптивности */
+    @media (max-width: 600px) {
+      body {
+        padding: 10px;
+      }
+
+      h1 {
+        font-size: 1.5em;
+      }
+
+      h3 {
+        font-size: 1.2em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Ваш Фокус - Стратегия и Развитие.</h1>
+  <h3>Умные таблицы, боты и AI-агенты, работают на вас и на ваши высокие цели!</h3>
+  <h3><i>Выберите свой вариант и получите личное предложение, пока действует акция:</i></h3>
+
+  <button class="toggle-all-btn" id="toggle-all">Свернуть все</button>
+
+  <div class="product" id="product1">
+    <div class="product-title">- Умная таблица для генерации контента -</div>
+    <p class="product-description">Контент-план на автопилоте: ИИ-помощник для Telegram и других соцсетей</p>
+    <button class="toggle-details-btn">Подробнее</button>
+    <div class="details">
+      <p><strong>Как работает:</strong> Интеграция с ИИ. Готовые промпты и роли. Все, что нужно для создания контента для телеграм канала.</p>
+      <p><strong>Промокод:</strong> ContentXLS</p>
+      <button class="order-btn">Хочу! Получить предложение</button>
+      <div class="order-status"></div>
+    </div>
+  </div>
+
+  <div class="product" id="product2">
+    <div class="product-title">- Бот для опросов -</div>
+    <p class="product-description">Опросы, которые работают: Собирайте данные и вовлекайте аудиторию</p>
+    <button class="toggle-details-btn">Подробнее</button>
+    <div class="details">
+      <p><strong>Как работает:</strong> Это супер-удобное решение, которое поможет вам в проведении опросов, анкетирования и кастдевов. В дополнение к боту вы получаете удобный рабочий кабинет для администратора (реализован в формате Google таблицы), где можно вести учет и аналитику ответов, моментально менять описание задачи, содержание и список вопросов, а также управлять отправкой благодарности респондентам за участие в опросе - добавлять промокоды, ссылки на закрытые каналы, гайды и т.д. Прекрасная альтернатива для недавно законодательно запрещенных в РФ Google форм.</p>
+      <p><strong>Промокод:</strong> OprosBot</p>
+      <button class="order-btn">Хочу! Получить предложение</button>
+      <div class="order-status"></div>
+    </div>
+  </div>
+
+  
+  <div class="product" id="product3">
+    <div class="product-title">- Яндекс-форма и Телеграм Бот с интеграцией -</div>
+    <p class="product-description">Данные под контролем: Безопасный сбор и анализ информации</p>
+    <button class="toggle-details-btn">Подробнее</button>
+    <div class="details">
+      <p><strong>Как работает:</strong> Это комбинированное решение, которое поможет охватить более широкий круг респондентов и соблюсти все требования законодательства об обработке персональных данных. Данные собираются и обрабатываются на локальных российских серверах. Возможна также их сквозная передача в Google таблицы для дополнительного анализа - в обезличенной форме. Прекрасная альтернатива для недавно запрещенных в РФ Google форм.</p>
+      <p><strong>Промокод:</strong> OprosBot</p>
+      <button class="order-btn">Хочу! Получить предложение</button>
+      <div class="order-status"></div>
+    </div>
+  </div>
+
+  <div class="product" id="product4">
+    <div class="product-title">- Бот для мониторинга процессов, составления каталогов и архивов -</div>
+    <p class="product-description">Каталогизация без усилий: Фото, Заметки и ИИ - 3 в 1 и удобный архив!</p>
+    <button class="toggle-details-btn">Подробнее</button>
+    <div class="details">
+      <p><strong>Как работает:</strong> Идеальное решение для вашего бизнеса или для частного использования. Вы набрасываете в бот картинки, фото, скриншоты и комментарии к ним. Бот сохраняет их в таблицу, а также при необходимости - распознает текст на изображении (включая рукописный) и переводит его на русский или английский языки.</p>
+      <p><strong>Промокод:</strong> KatalogBot</p>
+      <button class="order-btn">Хочу! Получить предложение</button>
+      <div class="order-status"></div>
+    </div>
+  </div>
+
+  <div class="product" id="product5">
+    <div class="product-title">- ИИ Переводчик -</div>
+    <p class="product-description">Забудьте про копипаст и общайтесь на любом языке без границ!</p>
+    <button class="toggle-details-btn">Подробнее</button>
+    <div class="details">
+      <p><strong>Как работает:</strong> Отправляете боту текст или картинку, он моментально возвращает перевод на русский или любой выбранный вами язык. Два языка можно установить в избранные и бот будет переводить сообщения без использования дополнительных команд.</p>
+      <p><strong>Промокод:</strong> TranslatorBot</p>
+      <button class="order-btn">Хочу! Получить предложение</button>
+      <div class="order-status"></div>
+    </div>
+  </div>
+
+  <div class="product" id="product6">
+    <div class="product-title">- Личный Коуч -</div>
+    <p class="product-description">Ваш личный коуч в Telegram: Поддержка, рефлексия и вдохновение.</p>
+    <button class="toggle-details-btn">Подробнее</button>
+    <div class="details">
+      <p><strong>Как работает:</strong> Бережный собеседник. Бот-коуч и поддерживающий психолог 2 в 1. Ответы генерируются с помощью ИИ-агента, обученного помогать, поддерживать, валидировать и контейнировать эмоции собеседника.</p>
+      <p><strong>Промокод:</strong> CaringBot</p>
+      <button class="order-btn">Хочу! Получить предложение</button>
+      <div class="order-status"></div>
+    </div>
+  </div>
+
+  <div class="product" id="product7">
+    <div class="product-title">- Бот-трекер -</div>
+    <p class="product-description">Живите осознанно и держите все под контролем: Простой бот для анализа активности и прогресса.</p>
+    <button class="toggle-details-btn">Подробнее</button>
+    <div class="details">
+      <p><strong>Как работает:</strong> Это самый простой бот. Но в этом его сила: Вы просто пишете ему в сообщениях то, чем вы сейчас занимаетесь или что сделали, и бот записывает это сообщение вместе с датой и временем их получения в таблицу.</p>
+      <p><strong>Промокод:</strong> TrackerBot</p>
+      <button class="order-btn">Хочу! Получить предложение</button>
+      <div class="order-status"></div>
+    </div>
+  </div>
+
+  <div class="product" id="product8">
+    <div class="product-title">- Бот для рефрейминга -</div>
+    <p class="product-description">Перезагрузите мышление: Избавьтесь от ограничений с помощью ИИ!</p>
+    <button class="toggle-details-btn">Подробнее</button>
+    <div class="details">
+      <p><strong>Как работает:</strong> Помогает определить и перефразировать ограничивающие установки и убеждения. Очень эффективен при работе с самопозиционированием.</p>
+      <p><strong>Промокод:</strong> ReframingBot</p>
+      <button class="order-btn">Хочу! Получить предложение</button>
+      <div class="order-status"></div>
+    </div>
+  </div>
+
+  <div class="product" id="product9">
+    <div class="product-title">- Бот для ведения канала с анонимным постингом -</div>
+    <p class="product-description">Анонимный канал: Свобода мнений и ценные инсайты</p>
+    <button class="toggle-details-btn">Подробнее</button>
+    <div class="details">
+      <p><strong>Как работает:</strong> Пользователи отправляют сообщение боту. Он отправляет сообщение в канал от своего имени. Удобно - для сбора мнений, инсайтов, мозгового штурма.</p>
+      <p><strong>Промокод:</strong> AnonymousBot</p>
+      <button class="order-btn">Хочу! Получить предложение</button>
+      <div class="order-status"></div>
+    </div>
+  </div>
+
+  <div class="product" id="product10">
+    <div class="product-title">- Бот для логирования канала и чата -</div>
+    <p class="product-description">Полная история канала: Сохраняйте посты, фото и аналитику</p>
+    <button class="toggle-details-btn">Подробнее</button>
+    <div class="details">
+      <p><strong>Как работает:</strong> Классический бот-администратор. Записывает в Google таблицы все посты и сообщения из чата, а также отправленные в канал и в чат фото и прочие изображения.</p>
+      <p><strong>Промокод:</strong> GroupLoggerBot</p>
+      <button class="order-btn">Хочу! Получить предложение</button>
+      <div class="order-status"></div>
+    </div>
+  </div>
+
+  <div class="product" id="product11">
+    <div class="product-title">- Решение для парсинга публичных каналов в Телеграм -</div>
+    <p class="product-description">Мониторинг каналов: Будьте в курсе трендов и активности конкурентов</p>
+    <button class="toggle-details-btn">Подробнее</button>
+    <div class="details">
+      <p><strong>Как работает:</strong> Ежедневно (или чаще - по вашему желанию) проходит по списку выбранных каналов и записывает последнее сообщение в канале в сводную таблицу, с учетом количества реакций на пост.</p>
+      <p><strong>Промокод:</strong> ChannelParsingXls</p>
+      <button class="order-btn">Хочу! Получить предложение</button>
+      <div class="order-status"></div>
+    </div>
+  </div>
+
+  <div class="product" id="product12">
+    <div class="product-title">- Решение для отложенного постинга в Телеграм -</div>
+    <p class="product-description">Планируйте контент: Автоматизируйте и анализируйте частоту публикаций в Telegram</p>
+    <button class="toggle-details-btn">Подробнее</button>
+    <div class="details">
+      <p><strong>Как работает:</strong> Вы записываете текст поста в Google календарь. В день Х бот автоматически публикует его на вашем канале. Вы видите список постов в календаре и получаете общую картину по истории публикаций.</p>
+      <p><strong>Промокод:</strong> PostingBot</p>
+      <button class="order-btn">Хочу! Получить предложение</button>
+      <div class="order-status"></div>
+    </div>
+  </div>
+
+  <div class="product" id="product13">
+    <div class="product-title">- Бот Бухгалтер -</div>
+    <p class="product-description">Анализ финансов в Telegram: Простой и удобный учет приходов/расходов - всегда под рукой!</p>
+    <button class="toggle-details-btn">Подробнее</button>
+    <div class="details">
+      <p><strong>Как работает:</strong> Очень простой бот - записаная книжка для учета доходов и расходов. Вы забрасываете в бот сумму и "хоп!" она уже в таблице! Баланс и итоги за месяц можно поверить моментально.</p>
+      <p><strong>Промокод:</strong> BudjetBot</p>
+      <button class="order-btn">Хочу! Получить предложение</button>
+      <div class="order-status"></div>
+    </div>
+  </div>
+
+  <div class="product" id="product14">
+    <div class="product-title">- Личный Шеф-повар -</div>
+    <p class="product-description">Секреты шеф-повара у вас в Telegram: Вдохновение, рецепты и лафхаки на каждый день!</p>
+    <button class="toggle-details-btn">Подробнее</button>
+    <div class="details">
+      <p><strong>Как работает:</strong> Задайте боту любой вопрос о домашней или высокой кухне. Он не только ответит по делу, но и даст дополнительный ценный совет. Модель обучалась у лучших нутрициологов и поваров мастеров высокой кухни со звездой Michelin!</p>
+      <p><strong>Промокод:</strong> KitchenChefBot</p>
+      <button class="order-btn">Хочу! Получить предложение</button>
+      <div class="order-status"></div>
+    </div>
+  </div>
+
+  <script>
+    document.querySelectorAll('.toggle-details-btn').forEach(button => {
+      button.addEventListener('click', () => {
+        const productDiv = button.closest('.product');
+        const details = productDiv.querySelector('.details');
+        if (details.style.display === 'block') {
+          details.style.display = 'none';
+          button.textContent = 'Подробнее';
+        } else {
+          details.style.display = 'block';
+          button.textContent = 'Скрыть';
+        }
+      });
+    });
+
+    document.querySelectorAll('.order-btn').forEach(button => {
+      button.addEventListener('click', () => {
+        const productDiv = button.closest('.product');
+        const promoCode = productDiv.querySelector('p:nth-child(3)').textContent.replace(/.*: /, ''); // Извлекаем промокод
+        window.location.href = "https://t.me/privetDasha_bot?start=" + encodeURIComponent(promoCode);
+      });
+    });
+
+    // Обработчик для кнопки "Свернуть/Развернуть все"
+    document.getElementById('toggle-all').addEventListener('click', () => {
+      const products = document.querySelectorAll('.product');
+      products.forEach(product => {
+        const details = product.querySelector('.details');
+        const toggleButton = product.querySelector('.toggle-details-btn');
+
+        if (details.style.display === 'none') {
+          details.style.display = 'block';
+          toggleButton.textContent = 'Скрыть';
+        } else {
+          details.style.display = 'none';
+          toggleButton.textContent = 'Подробнее';
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
